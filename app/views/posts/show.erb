@@ -1,0 +1,7 @@
+<%= link_to @post.blogger.name, blogger_path(@post.blogger) %>
+<%= link_to @post.destination.name, destination_path(@post.destination %>
+<h1><%= @post.likes %></h1>
+
+<%= form_with model: @post do |f| %>
+<%= f.button :submit , name: "likes",value: "1"%>
+<% end %>

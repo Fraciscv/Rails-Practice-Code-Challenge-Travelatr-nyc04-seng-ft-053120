@@ -1,0 +1,24 @@
+<% if @errors%>
+<% @errors.each do |err| %>
+<p style="color:red"><%= err %></p>
+<% end%>
+<% end%>
+
+<font size="+1" face="Comic Sans MS"><%= form_with model: @post do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title %><br><br>
+ 
+<%= f.label :content %>
+<%= f.text_area :content %><br><br>
+
+<%= f.label :destination_id %>
+<%= f.collection_select :destination_id, Destination.all, :id, :name %><br><br>
+
+<%= f.label :blogger_id %>
+<%= f.collection_select :blogger_id, Blogger.all, :id, :name %><br><br>
+
+
+ 
+<%= f.submit %>
+<% end %>
+</font>

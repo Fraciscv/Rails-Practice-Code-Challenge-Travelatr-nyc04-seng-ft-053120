@@ -1,5 +1,6 @@
 <font size="+1" face="Comic Sans MS"><h1><%= @blogger.name %></h1></font>
 <br>
+<% if !@blogger.posts.empty? %>
 total likes: <%= @blogger.total_likes %>
 <br>
 most liked post: <%= link_to "Featured post", post_path(@blogger.featured_post) %>
@@ -10,3 +11,6 @@ most liked post: <%= link_to "Featured post", post_path(@blogger.featured_post) 
 <li><%= link_to destination.name, destination %></li><br>
 <% end%>
 </ul>
+<% else %>
+welcome, you have no posts ¯\_(ツ)_/¯ get on with some posting<%= link_to "click here", new_post_path %>. 
+<% end%>
