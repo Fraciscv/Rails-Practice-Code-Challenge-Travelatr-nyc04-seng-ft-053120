@@ -5,6 +5,4 @@ Rails.application.routes.draw do
     
   resources :destinations
   patch "/posts/:id/like", to: "posts#like"
-  # patch "/posts/:id/dislike", to: "posts#dislike"
-  
 end
