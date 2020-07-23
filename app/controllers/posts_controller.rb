@@ -30,7 +30,7 @@ class PostsController < ApplicationController
 
     def show
         byebug
-        @post.likes += params[:likes] 
+        @post.likes += params[:likes]
     end
 
 private
