@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-    before_action :set_post, only: [:edit, :update, ]
+    before_action :set_post, only: [:edit, :update, :show, :like]
     def new
         @post = Post.new
         @errors = flash[:errors]
@@ -29,8 +29,15 @@ class PostsController < ApplicationController
     end
 
     def show
-        byebug
-        @post.likes += params[:likes]
+    end
+
+    def like
+        if params[:name] == "dislike"
+            @post.dislike
+        elsif params[:name] == "like"
+            @post.add_like
+        end 
+        redirect_to post_path(@post)
     end
 
 private

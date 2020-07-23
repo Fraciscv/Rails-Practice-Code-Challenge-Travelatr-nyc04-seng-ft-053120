@@ -1,7 +1,13 @@
-<%= link_to @post.blogger.name, blogger_path(@post.blogger) %>
-<%= link_to @post.destination.name, destination_path(@post.destination %>
-<h1><%= @post.likes %></h1>
+<h1><%= @post.title %></h1>
+By: <%= link_to @post.blogger.name, blogger_path(@post.blogger) %><br><br>
+Destination: <%= link_to @post.destination.name, destination_path(@post.destination) %><br><br>
 
-<%= form_with model: @post do |f| %>
-<%= f.button :submit , name: "likes",value: "1"%>
-<% end %>
+<p><%= @post.content %></p>
+Likes: <%= @post.likes %>
+
+
+
+
+<%= button_to 'like', "/posts/#{@post.id}/like", method: :patch, params: {name: "like"} %>
+
+<%= button_to 'dislike', "/posts/#{@post.id}/like", method: :patch, params: {name: "dislike"} %>
