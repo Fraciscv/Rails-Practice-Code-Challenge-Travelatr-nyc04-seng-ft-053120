@@ -1,0 +1,12 @@
+<font size="+1" face="Comic Sans MS"><h1><%= @blogger.name %></h1></font>
+<br>
+total likes: <%= @blogger.total_likes %>
+<br>
+most liked post: <%= link_to "Featured post", post_path(@blogger.featured_post) %>
+<br>
+<h3>top 5:</h3>
+<ul>
+<% @blogger.top_destinations.each do |destination| %>
+<li><%= link_to destination.name, destination %></li><br>
+<% end%>
+</ul>

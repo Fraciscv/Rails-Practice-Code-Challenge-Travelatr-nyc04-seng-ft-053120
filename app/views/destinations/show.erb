@@ -1,0 +1,18 @@
+<h1><%= @destination.name %></h1>
+
+<font size="+1" face="Comic Sans MS">
+
+<br>
+<% if !@destination.posts.empty? %>
+Five most recent posts:</h3>
+<ul>
+<% @destination.five_most_recent_posts.each do |post| %>
+<li><%= link_to post.title, post %></li><br>
+<% end%>
+</ul>
+featured post: <%= link_to @destination.featured_post.title, post_path(@destination.featured_post) %>
+<br>
+average blogger age: <%= @destination.average_blogger_age %>
+<% else %>
+no posts</font>
+<% end%>
